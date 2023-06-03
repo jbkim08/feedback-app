@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
 
 const FeedbackContext = createContext();
 
@@ -23,13 +22,23 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   //아이템 추가
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4();
-    setFeedback([newFeedback, ...feedback]);
+  const addFeedback = async (newFeedback) => {
+    const response = await fetch('http://localhost:5000/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newFeedback)
+    });
+
+    const data = await response.json();
+
+    setFeedback([data, ...feedback]);
   };
   //아이템 삭제
-  const deleteFeedback = (id) => {
+  const deleteFeedback = async (id) => {
     if (window.confirm('정말로 삭제할까요?')) {
+      await fetch(`http://localhost:5000/feedback/${id}`, { method: 'DELETE' });
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };

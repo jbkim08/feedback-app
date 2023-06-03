@@ -1,24 +1,24 @@
 {
-	"feedback": [
-		{
-			"id": 1,
-			"rating": 10,
-			"text": "피드벡 아이템 1 from 벡엔드"
-		},
-		{
-			"id": 2,
-			"rating": 9,
-			"text": "피드벡 아이템 2 from 벡엔드"
-		},
-		{
-			"id": 3,
-			"rating": 8,
-			"text": "피드벡 아이템 3 from 벡엔드"
-		},
-		{
-			"rating": 5,
-			"text": "새로운 피드백 아이템 입니다.",
-			"id": 4
-		}
-	]
+  "feedback": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "피드벡 아이템 1 from 벡엔드"
+    },
+    {
+      "id": 2,
+      "rating": 9,
+      "text": "피드벡 아이템 2 from 벡엔드"
+    },
+    {
+      "id": 3,
+      "rating": 8,
+      "text": "피드벡 아이템 3 from 벡엔드"
+    },
+    {
+      "rating": 5,
+      "text": "새로운 피드백 아이템 입니다.",
+      "id": 4
+    }
+  ]
 }
