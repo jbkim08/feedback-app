@@ -43,11 +43,20 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
   //수정후 저장하기
-  const updateFeedback = (id, updItem) => {
+  const updateFeedback = async (id, updItem) => {
+    const response = await fetch(`http://localhost:5000/feedback/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updItem),
+    });
+
+    const data = await response.json();
+
     setFeedback(
-      feedback.map((item) => (item.id === id ? { ...item, ...updItem } : item))
+      feedback.map((item) => (item.id === id ? data : item))
     );
-    //console.log(id, updItem);
   };
 
   //아이템 업데이트
